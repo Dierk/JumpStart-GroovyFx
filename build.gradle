@@ -1,0 +1,15 @@
+apply plugin:'groovy'
+apply plugin:'application'
+
+mainClassName = 'CoverFlow'
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.3.0'
+    compile 'org.codehaus.groovyfx:groovyfx:0.4.0'
+}
