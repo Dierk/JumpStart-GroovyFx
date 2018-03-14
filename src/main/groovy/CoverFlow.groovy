@@ -3,11 +3,13 @@
 import static groovyx.javafx.GroovyFX.start
 
 start {
+    def imageUrls = new File("resources/img").listFiles().grep { it.name.endsWith('.jpg') }*.toURI()*.toURL()
+    int index = 0;
     stage title: "GroovyFX Cover Flow", visible: true, {
         scene {
-            view = imageView( new File('resources/img/Amilka.jpg').toURI().toURL() ) {
+            view = imageView(imageUrls[index]) {
                 onMouseClicked {
-                    println "Moooooo!"
+                    view.image = image(imageUrls[++index % imageUrls.size()])
                 }
             }
         }
